@@ -3,3 +3,7 @@ openai
 python-dotenv
 pypdf
 numpy
+streamlit
+requests
+beautifulsoup4
+groq
