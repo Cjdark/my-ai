@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 # Initialize Groq client
 client = OpenAI(
-    api_key="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",  # 🔑 Replace with your Groq API key
+    api_key="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",  # 🔑 Replace with your Groq API key
     base_url="https://api.groq.com/openai/v1"  # ✅ Important for Groq
 )
 
@@ -69,3 +69,4 @@ if prompt := st.chat_input("Type your message or paste a link..."):
 
     except Exception as e:
         st.error(f"⚠️ Error: {e}")
+
