@@ -4,11 +4,15 @@ import requests
 from bs4 import BeautifulSoup
 
 
+import os
+from openai import OpenAI
+
 # Initialize Groq client
 client = OpenAI(
-    api_key="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",  # 🔑 Replace with your Groq API key
+    api_key=os.getenv("API_KEY"),  # 🧠 Pulls the secret from environment
     base_url="https://api.groq.com/openai/v1"  # ✅ Important for Groq
 )
+
 
 # Streamlit page setup
 st.set_page_config(page_title="MinnalX ", page_icon="⚡")
@@ -69,4 +73,5 @@ if prompt := st.chat_input("Type your message or paste a link..."):
 
     except Exception as e:
         st.error(f"⚠️ Error: {e}")
+
 
