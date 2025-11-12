@@ -1,0 +1,27 @@
+name: Run Groq Script
+
+on:
+  push:
+    branches: [ main ]  # runs when you push code to the main branch
+  workflow_dispatch:     # allows you to run it manually
+
+jobs:
+  run-groq:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install openai
+
+      - name: Run Groq script
+        env:
+          API_KEY: ${{ secrets.API-KEY }}  # 👈 loads your GitHub secret
+        run: python main.py                # 👈 change this if your file has a different name
