@@ -21,6 +21,19 @@ jobs:
       - name: Install dependencies
         run: pip install openai
 
+        
+      - name: Check if API key is set
+        run: |
+          if [ -z "$API_KEY" ]; then
+            echo "❌ API_KEY not found!"
+            exit 1
+          else
+            echo "✅ API_KEY found successfully!"
+          fi
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+
+
       - name: Run Groq script
         env:
           API_KEY: ${{ secrets.API_KEY }}  # 👈 loads your GitHub secret
